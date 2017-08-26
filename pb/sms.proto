@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb;
+
+
+// 发送短信请求参数, 具体请参考链接
+// https://help.aliyun.com/document_detail/55284.html?spm=5176.doc56189.6.552.9Bi058
+message SendSmsRequest {
+    string PhoneNumbers     = 1;    //多个手机号码以英文逗号分割
+    string SignName         = 2;    //短信签名名称
+    string TemplateCode     = 3;    //短信模板CODE
+    string TemplateParam    = 4;    //短信模板参数
+    string OutId            = 5;    //外部流水扩展字段
+    string smsUpExtendCode  = 6;    //上行短信扩展码
+}
+
+// 发送短信响应参数, 具体请参考链接
+// https://help.aliyun.com/document_detail/55284.html?spm=5176.doc56189.6.552.9Bi058
+message SendSmsRespose {
+    string RequestId        = 1;    //请求ID
+    string Code             = 2;    //状态码
+    string Message          = 3;    //状态码的描述
+    string BizId            = 4;    //发送回执ID
+}
