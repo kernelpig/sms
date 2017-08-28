@@ -24,5 +24,5 @@ func SpecialUrlEncode(s string) string {
 func Sign(accessSecret, stringToSign string) string {
 	h := hmac.New(sha1.New, []byte(accessSecret))
 	h.Write([]byte(stringToSign))
-	return base64.URLEncoding.EncodeToString(h.Sum(nil))
+	return base64.StdEncoding.EncodeToString(h.Sum(nil))
 }
